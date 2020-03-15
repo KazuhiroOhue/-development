@@ -49,10 +49,7 @@
                                             {{ str_limit($memos->body, 1500) }}
                                         </div>
                                         <div>
-                                            <a href="{{ action('Admin\MemosController@edit', ['id' => $memos->id]) }}">編集</a>
-                                        </div>
-                                        <div>
-                                            <a href="{{ action('Admin\MemosController@delete', ['id' => $memos->id]) }}">削除</a>
+                                            <a href="{{ action('Admin\MemosController@detail', ['id' => $memos->id]) }}">詳細</a>
                                         </div>
                                     </div>
                                 </div>

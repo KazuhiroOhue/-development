@@ -55,6 +55,14 @@ class MemosController extends Controller
         return view('admin.memos.index', ['posts' => $posts, 'cond_title' => $cond_title]);
     }
     
+    //↓追加Action↓
+    public function detail(Request $request)
+    {
+        $memos = Memos::find($request->id);
+        
+        return view('admin.memos.detail',['memos' => $memos]);
+    }
+    
     public function edit(Request $request)
     {
         // Memos Modelからデータを取得する
@@ -74,6 +82,10 @@ class MemosController extends Controller
         $memos = Memos::find($request->id);
         // 送信されてきたフォームデータを格納する
         $memos_form = $request->all();
+        /*
+        if〜が無いと、
+        画像を変更した際にエラーになるらしい。
+        */
         if (isset($memos_form['image'])) {
             $path = $request->file('image')->store('public/image');
             $memos->image_path = basename($path);

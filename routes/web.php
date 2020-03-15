@@ -19,12 +19,14 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::get('memos/create', 'Admin\MemosController@add');
     Route::post('memos/create', 'Admin\MemosController@create');
     Route::get('memos', 'Admin\MemosController@index');
+    Route::get('memos/detail','Admin\MemosController@detail');
     Route::get('memos/edit', 'Admin\MemosController@edit');
     Route::post('memos/edit', 'Admin\MemosController@update');
     Route::get('memos/delete', 'Admin\MemosController@delete');
     Route::get('variety/create', 'Admin\VarietyController@add');
     Route::post('variety/create', 'Admin\VarietyController@create');
     Route::get('variety', 'Admin\VarietyController@index');
+    Route::get('variety/detail','Admin\VarietyController@detail');
     Route::get('variety/edit', 'Admin\VarietyController@edit');
     Route::post('variety/edit', 'Admin\VarietyController@update');
     Route::get('variety/delete', 'Admin\VarietyController@delete');

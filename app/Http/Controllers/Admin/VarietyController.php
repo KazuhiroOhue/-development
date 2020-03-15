@@ -25,7 +25,6 @@ class VarietyController extends Controller
         $variety = new Variety;
         $form = $request->all();
 
-        // フォームから画像が送信されてきたら、保存して、$news->image_path に画像のパスを保存する
         if (isset($form['image'])) {
             $path = $request->file('image')->store('public/image');
             $variety->image_path = basename($path);
@@ -50,14 +49,22 @@ class VarietyController extends Controller
         $cond_title = $request->cond_title;
         if ($cond_title != '') {
             // 検索されたら検索結果を取得する
-            $posts = Variety::where('title', $cond_title)->get();
+            $posts = Variety::where('title', 'like','%'.$cond_title.'%')->get();
         } else {
             // それ以外はすべてのニュースを取得する
             $posts = Variety::all();
         }
         return view('admin.variety.index', ['posts' => $posts, 'cond_title' => $cond_title]);
     }
-
+    
+    //↓追加Action↓
+    public function detail(Request $request)
+    {
+        $variety = Variety::find($request->id);
+        
+        return view('admin.variety.detail',['variety' => $variety]);
+    }
+    
     public function edit(Request $request)
     {
         // Variety Modelからデータを取得する
@@ -93,8 +100,8 @@ class VarietyController extends Controller
 
         // 該当するデータを上書きして保存する
         $variety->fill($variety_form)->save();
-        
-        return redirect('admin/variety');
+    
+        return redirect('admin/variety/');
     }
     
     public function delete(Request $request)

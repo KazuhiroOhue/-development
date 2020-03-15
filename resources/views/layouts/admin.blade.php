@@ -48,9 +48,9 @@
                         <ul class="navbar-nav ml-auto">
                             
                         <!-- Authentication Links -->
-                        {{-- ログインしていなかったらログイン画面へのリンクを表示 --}}
+                        {{-- ログインしていなかったら新規画面へのリンクを表示 --}}
                         @guest
-                            <li><a class="nav-link" href="{{ route('login') }}">{{ __('messages.Login') }}</a></li>
+                            <li><a class="nav-link" href="{{ route('register') }}">{{ __('新規登録する') }}</a></li>
                         {{-- ログインしていたらユーザー名とログアウトボタンを表示 --}}
                         @else
                             <li class="nav-item dropdown">
@@ -63,6 +63,12 @@
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('messages.Logout') }}
+                                    </a>
+                                    <a class="dropdown-item" href="{{ action('Admin\MemosController@index') }}">
+                                        {{ __('技メモ') }}
+                                    </a>
+                                    <a class="dropdown-item" href="{{ action('Admin\VarietyController@index') }}">
+                                        {{ __('メモいろいろ') }}
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

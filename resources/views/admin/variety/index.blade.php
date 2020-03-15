@@ -28,7 +28,6 @@
         <div class="row">
             <div class="list-variety col-md-12 mx-auto">
                 <div class="row">
-                    
                         <tbody>
                             @foreach($posts as $variety)
                                 
@@ -44,12 +43,11 @@
                                             <div class="body mt-3">
                                                 {{ str_limit($variety->body, 1500) }}
                                             </div>
+                                            
                                             <div>
-                                                <a href="{{ action('Admin\VarietyController@edit', ['id' => $variety->id]) }}">編集</a>
+                                                <a href="{{ action('Admin\VarietyController@detail', ['id' => $variety->id]) }}">詳細</a>
                                             </div>
-                                            <div>
-                                                <a href="{{ action('Admin\VarietyController@delete', ['id' => $variety->id]) }}">削除</a>
-                                            </div>
+                                            
                                         </div>
                                         
                                     </div>

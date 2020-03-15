@@ -35,9 +35,19 @@
                         </div>
                     </div>
                     {{ csrf_field() }}
-                    <input type="submit" class="btn btn-primary" value="追加">
+                    <input type="submit" class="btn btn-primary" value="追加" onclick="return check();">
                 </form>
             </div>
         </div>
     </div>
+    <script type="text/javascript">
+        function check() {
+            if (window.confirm('この内容でよろしいですか？')) {
+                window.alert('追加されました');
+		        return true;
+	        } else {
+		        return false;
+	        }
+        }
+    </script>
 @endsection

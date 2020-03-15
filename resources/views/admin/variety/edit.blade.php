@@ -44,11 +44,21 @@
                         <div class="col-md-10">
                             <input type="hidden" name="id" value="{{ $variety_form->id }}">
                             {{ csrf_field() }}
-                            <input type="submit" class="btn btn-primary" value="更新">
+                            <input type="submit" class="btn btn-primary" value="更新" onclick="return check();">
                         </div>
                     </div>
                 </form>
             </div>
         </div>
     </div>
+    <script type="text/javascript">
+        function check() {
+            if (window.confirm('この内容でよろしいですか？')) {
+                window.alert('更新されました');
+		        return true;
+	        } else {
+		        return false;
+	        }
+        }
+    </script>
 @endsection

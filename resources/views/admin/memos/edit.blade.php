@@ -23,10 +23,9 @@
                     <div class="form-group row">
                         <label class="col-md-2" for="rank">段位</label>
                         <div class="col-md-10">
-                            <select type="rank" class="form-control" name="rank"> 
-                            {{-- 要確認！！！！ --}}
+                            <select class="form-control" name="rank"> 
                                 @foreach(config('rank') as $key => $value)
-                                    <option value="{{ $key }}" @if($memos_form->rank == $value) selected @endif>{{ $value }}</option>
+                                    <option value="{{ $value }}" @if($memos_form->rank == $value) selected @endif>{{ $value }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -34,7 +33,11 @@
                     <div class="form-group row">
                         <label class="col-md-2" for="type">拳系</label>
                         <div class="col-md-10">
-                            <input type="text" class="form-control" name="type" value="{{ $memos_form->type }}">
+                            <select class="form-control" name="type">
+                                @foreach(config('type') as $key => $value)
+                                    <option value="{{ $value }}" @if($memos_form->type == $value) selected @endif>{{ $value }}</option>
+                                @endforeach
+                            </select>
                         </div>
                     </div>
                     <div class="form-group row">
@@ -61,11 +64,22 @@
                         <div class="col-md-10">
                             <input type="hidden" name="id" value="{{ $memos_form->id }}">
                             {{ csrf_field() }}
-                            <input type="submit" class="btn btn-primary" value="更新">
+                            <input type="submit" class="btn btn-primary" value="更新" onclick="return check();">
                         </div>
                     </div>
                 </form>
             </div>
         </div>
     </div>
+    <script type="text/javascript">
+    //送信前の確認機能を追加
+        function check() {
+            if (window.confirm('この内容でよろしいですか？')) {
+                window.alert('更新されました');
+		        return true;
+	        } else {
+		        return false;
+	        }
+        }
+    </script>
 @endsection
