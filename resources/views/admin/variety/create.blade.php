@@ -43,7 +43,7 @@
     <script type="text/javascript">
         function check() {
             if (window.confirm('この内容でよろしいですか？')) {
-                window.alert('追加されました');
+                //window.alert('追加されました');
 		        return true;
 	        } else {
 		        return false;

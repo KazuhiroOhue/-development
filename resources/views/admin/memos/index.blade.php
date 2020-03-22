@@ -28,34 +28,32 @@
         <div class="row">
             <div class="list-memos col-md-12 mx-auto">
                 <div class="row">
-                    <tbody>
+                    <table class="table table-dark">
+                        <tbody>
+                            <thead>
+                                <tr>
+                                    <th width="20%">技名</th>
+                                    <th width="20%">更新日</th>
+                                    <th width="20%">段位</th>
+                                    <th width="20%">拳系</th>
+                                </tr>
+                            </thead>
+                        </tbody>
                         @foreach($posts as $memos)
-                            <div class="post">
-                                <div class="row">
-                                    <div class="text col-md-6">
-                                        <div class="date">
-                                            {{ $memos->updated_at->format('Y年m月d日') }}
-                                        </div>
-                                        <div class="name">
-                                            {{ str_limit($memos->name, 150) }}
-                                        </div>
-                                        <div class="rank">
-                                            {{ str_limit($memos->rank, 150) }}
-                                        </div>
-                                        <div class="type">
-                                            {{ str_limit($memos->type, 150) }}
-                                        </div>
-                                        <div class="body mt-3">
-                                            {{ str_limit($memos->body, 1500) }}
-                                        </div>
-                                        <div>
-                                            <a href="{{ action('Admin\MemosController@detail', ['id' => $memos->id]) }}">詳細</a>
-                                        </div>
-                                    </div>
+                        <tr>
+                            <th>{{$memos->name }}</th> 
+                            <th>{{$memos->updated_at->format('Y年m月d日') }}</th>
+                            <th>{{$memos->rank }}</th>
+                            <th>{{$memos->type }}</th>
+                            <td>
+                                <div>
+                                    <a href="{{ action('Admin\MemosController@detail', ['id' => $memos->id]) }}">詳細</a>
                                 </div>
-                            </div>    
+                            </td>
+                        </tr>  
                         @endforeach
-                    </tbody>
+                        
+                    </table>
                 </div>
             </div>
         </div>

@@ -28,34 +28,29 @@
         <div class="row">
             <div class="list-variety col-md-12 mx-auto">
                 <div class="row">
+                    <table class="table table-dark">
                         <tbody>
+                            <tbody>
+                                <thead>
+                                    <tr>
+                                        <th width="40%">タイトル</th>
+                                        <th width="40%">更新日</th>
+                                    </tr>
+                                </thead>
+                            </tbody>
                             @foreach($posts as $variety)
-                                
-                                <div class="post">
-                                    <div class="row">
-                                        <div class="text col-md-6">
-                                            <div class="date">
-                                                {{ $variety->updated_at->format('Y年m月d日') }}
-                                            </div>
-                                            <div class="title">
-                                                {{ str_limit($variety->title, 150) }}
-                                            </div>
-                                            <div class="body mt-3">
-                                                {{ str_limit($variety->body, 1500) }}
-                                            </div>
-                                            
-                                            <div>
-                                                <a href="{{ action('Admin\VarietyController@detail', ['id' => $variety->id]) }}">詳細</a>
-                                            </div>
-                                            
-                                        </div>
-                                        
+                            <tr>
+                                <th>{{$variety->title }}</th> 
+                                <th>{{$variety->updated_at->format('Y年m月d日') }}</th>
+                                <td>
+                                    <div>
+                                        <a href="{{ action('Admin\VarietyController@detail', ['id' => $variety->id]) }}">詳細</a>
                                     </div>
-                                </div>
-                                
+                                </td>
+                            </tr>
                             @endforeach
                         </tbody>
-                    
+                    </table>
                 </div>
             </div>
         </div>

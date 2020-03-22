@@ -16,7 +16,8 @@ class CreateVarietiesTable extends Migration
         Schema::create('varieties', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('title');
-            $table->string('body'); 
+            //カラム設定を変更しようとしたが…
+            $table->string('body', 1000)->change(); 
             $table->string('image_path')->nullable();
             $table->timestamps();
         });
