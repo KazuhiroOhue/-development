@@ -25,10 +25,10 @@
         <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
         {{-- 作成したCSS読み込み --}}
         <link href="{{ secure_asset('css/admin.css') }}" rel="stylesheet">
-        {{-- JQuery・lightboxプラグイン --}}
-        <link rel="stylesheet" href="css/lightbox.css">
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-        <script src="js/lightbox.js" type="text/javascript"></script>
+        {{-- JQuery・lightbox2プラグイン --}}
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/css/lightbox.css" rel="stylesheet">
+        <script src="https://code.jquery.com/jquery-1.12.4.min.js" type="text/javascript"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/js/lightbox.min.js" type="text/javascript"></script>
     </head>
     <body>
         <div id="app">

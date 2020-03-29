@@ -7,7 +7,9 @@
             <h2>技メモ一覧</h2>
         </div>
         
-        <p><a href="images/IMG_7016.jpg" rel="lightbox"><img src="images/IMG_7016.jpg" alt="" width="100" /></a></p>
+        <a href="{{ asset('images/IMG_7016.jpg') }}" data-lightbox="abc" data-title="ロバ">
+            <img src="{{ asset('images/IMG_7016-thumbnail.jpg') }}" alt="ロバ">
+        </a>
         
         
         

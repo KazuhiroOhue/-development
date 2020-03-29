@@ -24,7 +24,9 @@
                         </div>
                         <div class="image col-md-6 text-right mt-4">
                             @if ($memos->image_path)
-                               <img src="{{ asset('storage/image/' . $memos->image_path) }}">
+                                <a href="{{ asset('storage/image/' . $memos->image_path) }}" data-lightbox="abc" data-title="メモ">
+                                    <img src="{{ asset('storage/image/' . $memos->image_path) }}">
+                                </a>
                             @endif
                         </div>
                         <div class="row">
