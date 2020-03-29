@@ -75,7 +75,7 @@
     //送信前の確認機能を追加
         function check() {
             if (window.confirm('この内容でよろしいですか？')) {
-                window.alert('更新されました');
+                //window.alert('更新されました');
 		        return true;
 	        } else {
 		        return false;

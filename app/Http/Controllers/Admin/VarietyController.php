@@ -49,6 +49,8 @@ class VarietyController extends Controller
         $cond_title = $request->cond_title;
         if ($cond_title != '') {
             // 検索されたら検索結果を取得する
+            /*$posts = Variety::where('title', $cond_title)->get();
+            を、以下↓に変更*/
             $posts = Variety::where('title', 'like','%'.$cond_title.'%')->get();
         } else {
             // それ以外はすべてのニュースを取得する

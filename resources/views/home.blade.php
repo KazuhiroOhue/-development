@@ -13,22 +13,20 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
-                    ログインされました!
-                    
                 </div>
-                    
-                    {{-- 技ボタン追加 --}}
-                <div class="col-md-4">
-                    <a href="{{ action('Admin\MemosController@index') }}" role="button" class="btn btn-primary">技メモ</a>
-                </div>
-                
-                {{-- メモボタン追加 --}}
-                <div class="col-md-4">
-                    <a href="{{ action('Admin\VarietyController@index') }}" role="button" class="btn btn-primary">メモいろいろ</a>
-                </div>
-                    
-                
+                <h3>どのメモを見ますか？</h3>
+                <div class="form-group row">
+                    <div class="col-md-4">
+                        <p class="bt">
+                            <a href="{{ action('Admin\MemosController@index') }}" role="button" class="btn btn-primary">技メモ</a>
+                        </p>
+                    </div>
+                    <div class="col-md-4">
+                        <p class="bt">
+                            <a href="{{ action('Admin\VarietyController@index') }}" role="button" class="btn btn-primary">メモいろいろ</a>
+                        </p>
+                    </div>
+                </div>  
             </div>
         </div>
     </div>

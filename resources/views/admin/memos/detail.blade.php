@@ -44,7 +44,7 @@
     //送信前の確認機能を追加
         function check() {
             if (window.confirm('本当に削除してよろしいですか？')) {
-                window.alert('削除されました');
+                //window.alert('削除されました');
 		        return true;
 	        } else {
 		        return false;

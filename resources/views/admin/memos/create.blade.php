@@ -24,7 +24,7 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-2">段位</label>
+                        <label class="col-md-2">段位（プルダウンメニューから選択）</label>
                         <div class="col-md-10">
                             <select type="text" class="form-control" name="rank"> 
                                 {{-- configディレクトリのrank.phpファイルに記載した配列を呼び出す --}}
@@ -35,7 +35,7 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-2">拳系</label>
+                        <label class="col-md-2">拳系（プルダウンメニューから選択）</label>
                         <div class="col-md-10">
                             <select type="text" class="form-control" name="type"> 
                                 {{-- configディレクトリのtype.phpファイルに記載した配列を呼び出す --}}
@@ -67,7 +67,7 @@
     //送信前の確認機能を追加
         function check(){
             if (window.confirm('この内容でよろしいですか？')) {
-                window.alert('追加されました');
+                //window.alert('追加されました');
 		        return true;
 	        } else {
 		        return false;

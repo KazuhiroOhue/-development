@@ -54,7 +54,7 @@
     <script type="text/javascript">
         function check() {
             if (window.confirm('この内容でよろしいですか？')) {
-                window.alert('更新されました');
+                //window.alert('更新されました');
 		        return true;
 	        } else {
 		        return false;

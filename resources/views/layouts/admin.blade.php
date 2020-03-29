@@ -6,14 +6,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <!-- CSRF Token -->
-         {{-- 後の章で説明します --}}
+         {{-- 後の章で説明 --}}
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        {{-- 各ページごとにtitleタグを入れるために@yieldで空けておきます。 --}}
+        {{-- 各ページごとにtitleタグを入れるために@yieldで空けておく。 --}}
         <title>@yield('title')</title>
 
         <!-- Scripts -->
-         {{-- Laravel標準で用意されているJavascriptを読み込みます --}}
+         {{-- Laravel標準で用意されているJavascriptの読み込み --}}
         <script src="{{ secure_asset('js/app.js') }}" defer></script>
 
         <!-- Fonts -->
@@ -21,14 +21,18 @@
         <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
 
         <!-- Styles -->
-        {{-- Laravel標準で用意されているCSSを読み込みます --}}
+        {{-- Laravel標準で用意されているCSSの読み込み --}}
         <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
-        {{-- この章の後半で作成するCSSを読み込みます --}}
+        {{-- 作成したCSS読み込み --}}
         <link href="{{ secure_asset('css/admin.css') }}" rel="stylesheet">
+        {{-- JQuery・lightboxプラグイン --}}
+        <link rel="stylesheet" href="css/lightbox.css">
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="js/lightbox.js" type="text/javascript"></script>
     </head>
     <body>
         <div id="app">
-            {{-- 画面上部に表示するナビゲーションバーです。 --}}
+            {{-- 画面上部に表示するナビゲーションバー --}}
             <nav class="navbar navbar-expand-md navbar-dark navbar-laravel">
                 <div class="container">
                     <a class="navbar-brand" href="{{ url('/') }}">
@@ -84,7 +88,7 @@
             {{-- ここまでナビゲーションバー --}}
 
             <main class="py-4">
-                {{-- コンテンツをここに入れるため、@yieldで空けておきます。 --}}
+                {{-- コンテンツをここに入れるため、@yieldで空けておく。 --}}
                 @yield('content')
             </main>
         </div>

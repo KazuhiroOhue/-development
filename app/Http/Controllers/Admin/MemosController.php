@@ -44,15 +44,51 @@ class MemosController extends Controller
     
     public function index(Request $request)
     {
-        $cond_title = $request->cond_title;
-        if ($cond_title != '') {
+        //複数のワードで検索
+        //値を取得
+        $cond_name = $request->input('cond_name');
+        $cond_rank = $request->input('cond_rank');
+        $cond_type = $request->input('cond_type');
+        
+        //検索QUERY
+        $query = Memos::query();
+        
+        if (!empty($cond_name)) {
+            $query->where('name', 'like', '%'.$cond_name.'%');
+        }
+        
+        if (!empty($cond_rank)) {
+            $query->where('rank', 'like', '%'.$cond_rank.'%');
+        }    
+        
+        if (!empty($cond_type)) {
+            $query->where('type', 'like', '%'.$cond_type.'%');
+        }
+        
+        $posts = $query->paginate(10);
+        
+        $hash = array(
+            'cond_name' => $cond_name,
+            'cond_rank' => $cond_rank,
+            'cond_type' => $cond_type,
+            'posts' => $posts,
+            );
+        
+        return view('admin.memos.index')->with($hash);
+        
+        /*
+        //１つのワードで検索↓↓↓
+        
+        $cond_name = $request->cond_name;
+        if ($cond_name != '') {
             // 検索されたら検索結果を取得する
-            $posts = Memos::where('name', $cond_title)->get();
+            $posts = Memos::where('name', $cond_name)->paginate(10);
         } else {
             // それ以外はすべてのメモを取得する
-            $posts = Memos::all();
+            $posts = Memos::paginate(10);
         }
-        return view('admin.memos.index', ['posts' => $posts, 'cond_title' => $cond_title]);
+        return view('admin.memos.index', ['posts' => $posts, 'cond_name' => $cond_name]);
+        */
     }
     
     //↓追加Action↓
