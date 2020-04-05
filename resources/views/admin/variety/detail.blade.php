@@ -20,7 +20,9 @@
                 </div>
                 <div class="image col-md-4 mt-4">
                     @if ($variety->image_path)
-                        <img src="{{ asset('storage/image/' . $variety->image_path) }}">
+                        <a href="{{ asset('storage/image/' . $variety->image_path) }}" data-lightbox="abcd" data-title="メモいろいろ">
+                            <img src="{{ asset('storage/image/' . $variety->image_path) }}">
+                        </a>
                     @endif
                 </div>
             </div>

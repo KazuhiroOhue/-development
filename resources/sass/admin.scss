@@ -1,8 +1,9 @@
 body {
+  //背景を白・文字を黒に変更
   background-repeat: no-repeat;
   background-position: center;
-  background-color: #000;
-  color: #fff;
+  background-color: #fff;
+  color: #000;
 }
 
 .navbar-laravel {
@@ -50,9 +51,54 @@ body {
 .login-body {
   background-color: rgba(0, 0, 0, 0.25);
 }
-//detailの画像サイズを調整するため、以下を追加
+/*
+detailの画像サイズを調整
+マウスオーバーで虫眼鏡表示
+*/
 .image {
-      img {
+  img {
     width: 250px;
-      }
+  }
+    a:hover img { 
+    cursor: zoom-in;
+  }
+}
+//homeの画像サイズを調節
+.card-img-top {
+    max-width: 100%;
+ }
+//スライドボックス用のcss 
+ .open {
+    width:300px;
+    margin: 10px 0;
+    padding: 10px;
+    background:#00bfff;
+    cursor: pointer;
+}
+#slideBox {
+    display:none;
+    padding: 10px;
+    border: 1px solid #eeeeee;
+}
+//ボタン用のcss
+.bt{
+    width : 100px;
+    text-align: center;
+}
+
+.bt a{
+    text-decoration : none;
+    display : block;
+    color : #fff;
+    border-radius: 4px;
+    background-color: rgb(255, 164, 0);
+    box-shadow: 0px 4px 0 rgba(0, 0, 0, .7);
+    padding : 8px;
+    transition: 0.2s all ease 0s;
+}
+
+.bt a:hover{
+    background-color: #FC6E51;
+    box-shadow: none;
+    transform: translate3d(0, 3px, 0);
 }

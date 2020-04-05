@@ -1,8 +1,8 @@
 body {
   background-repeat: no-repeat;
   background-position: center;
-  background-color: #000;
-  color: #fff;
+  background-color: #fff;
+  color: #000;
 }
 
 .navbar-laravel {
@@ -54,3 +54,44 @@ body {
 .image img {
   width: 250px;
 }
+
+.card-img-top {
+  max-width: 100%;
+}
+
+.open {
+  width: 300px;
+  margin: 10px 0;
+  padding: 10px;
+  background: #00bfff;
+  cursor: pointer;
+}
+
+#slideBox {
+  display: none;
+  padding: 10px;
+  border: 1px solid #eeeeee;
+}
+
+.bt {
+  width: 100px;
+  text-align: center;
+}
+
+.bt a {
+  text-decoration: none;
+  display: block;
+  color: #fff;
+  border-radius: 4px;
+  background-color: #ffa400;
+  box-shadow: 0px 4px 0 rgba(0, 0, 0, 0.7);
+  padding: 8px;
+  transition: 0.2s all ease 0s;
+}
+
+.bt a:hover {
+  background-color: #FC6E51;
+  box-shadow: none;
+  transform: translate3d(0, 3px, 0);
+}
+

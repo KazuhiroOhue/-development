@@ -49,6 +49,9 @@
                                 </td>
                             </tr>
                             @endforeach
+                        </table>
+                        <div class="paginate">
+                            {!! $posts->render() !!}
                         </tbody>
                     </table>
                 </div>

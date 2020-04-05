@@ -24,8 +24,18 @@
                         <label class="col-md-2" for="rank">段位</label>
                         <div class="col-md-10">
                             <select class="form-control" name="rank"> 
-                                @foreach(config('rank') as $key => $value)
-                                    <option value="{{ $value }}" @if($memos_form->rank == $value) selected @endif>{{ $value }}</option>
+                                @foreach(config('rank') as $key => $score)
+                                    <option value="{{ $score }}" @if($memos_form->rank == $score) selected @endif>{{ $score }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-md-2">段位（旧課程）</label>
+                        <div class="col-md-10">
+                            <select type="text" class="form-control" name="rank2"> 
+                                @foreach(config('rank2') as $key => $score)
+                                    <option value="{{ $score }}" @if($memos_form->rank2 == $score) selected @endif>{{ $score }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -34,8 +44,8 @@
                         <label class="col-md-2" for="type">拳系</label>
                         <div class="col-md-10">
                             <select class="form-control" name="type">
-                                @foreach(config('type') as $key => $value)
-                                    <option value="{{ $value }}" @if($memos_form->type == $value) selected @endif>{{ $value }}</option>
+                                @foreach(config('type') as $key => $score)
+                                    <option value="{{ $score }}" @if($memos_form->type == $score) selected @endif>{{ $score }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -43,7 +53,8 @@
                     <div class="form-group row">
                         <label class="col-md-2" for="body">内容</label>
                         <div class="col-md-10">
-                            <textarea class="form-control" name="body" rows="20">{{ $memos_form->body }}</textarea>
+                            <textarea class="form-control" name="body" rows="20" maxlength="255">{{ $memos_form->body }}</textarea>
+                            <p>全角255文字まで入力できます。<span id="txtlmt">0</span></p>
                         </div>
                     </div>
                     <div class="form-group row">
@@ -58,6 +69,17 @@
                                     <input type="checkbox" class="form-check-input" name="remove" value="true">画像を削除
                                 </label>
                             </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-md-2">状態</label>
+                        <div class="col-md-10">
+                            <select type="text" class="form-control" name="status"> 
+                                {{-- configディレクトリのstatus.phpファイルに記載した配列を呼び出す --}}
+                                @foreach(config('status') as $key => $score)
+                                    <option value="{{ $score }}" @if($memos_form->status == $score) selected @endif>{{ $score }}</option>
+                                @endforeach
+                            </select>
                         </div>
                     </div>
                     <div class="form-group row">
@@ -81,5 +103,20 @@
 		        return false;
 	        }
         }
+    //残り文字数を表示   
+        $(function () {
+            $("textarea").keyup(function(){
+                var txtcount = $(this).val().length;
+                $("#txtlmt").text(txtcount);
+                if(txtcount == 0){
+                    $("#txtlmt").text("0");
+                } 
+                if(txtcount >= 200){
+                    $("#txtlmt").css("color","#d577ab");
+                } else {
+                    $("#txtlmt").css("color","#333");
+                }
+            });
+        });
     </script>
 @endsection

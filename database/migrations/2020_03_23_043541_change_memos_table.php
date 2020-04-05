@@ -15,9 +15,8 @@ class ChangeMemosTable extends Migration
     {
         //カラム“status”,“rank2”,“number”を追加
         Schema::table('memos', function (Blueprint $table) {
-            $table->string('status');
+            $table->string('status')->default(0);
             $table->string('rank2')->nullable();
-            $table->string('number')->nullable();
         });
         //stringテーブルの長さを1000に
         Schema::table('memos', function (Blueprint $table) {
@@ -36,7 +35,6 @@ class ChangeMemosTable extends Migration
         Schema::table('memos', function (Blueprint $table) {
             $table->dropColumn('status');
             $table->dropColumn('rank2');
-            $table->dropColumn('number');
         });
         //bodyカラムをもとに戻す
         Schema::table('memos', function (Blueprint $table) {

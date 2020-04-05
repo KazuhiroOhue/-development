@@ -49,12 +49,10 @@ class VarietyController extends Controller
         $cond_title = $request->cond_title;
         if ($cond_title != '') {
             // 検索されたら検索結果を取得する
-            /*$posts = Variety::where('title', $cond_title)->get();
-            を、以下↓に変更*/
-            $posts = Variety::where('title', 'like','%'.$cond_title.'%')->get();
+            $posts = Variety::where('title', 'like','%'.$cond_title.'%')->paginate(10);
         } else {
             // それ以外はすべてのニュースを取得する
-            $posts = Variety::all();
+            $posts = Variety::paginate(10);
         }
         return view('admin.variety.index', ['posts' => $posts, 'cond_title' => $cond_title]);
     }
