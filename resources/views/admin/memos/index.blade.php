@@ -78,8 +78,10 @@
                             <th>
                                 @if ($memos->status == "編集中")
                                 <span class="badge badge-warning">編集中</span>
-                                @else ($memos->status == "要確認‼")
-                                <span class="badge">完了</span>
+                                @elseif ($memos->status == "要確認‼")
+                                <span class="badge badge-danger">要確認‼︎</span>
+                                @else
+                                <span class="badge">︎完了</span>
                                 @endif
                             </th>
                             <td>
