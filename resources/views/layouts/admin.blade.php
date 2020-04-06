@@ -54,6 +54,7 @@
                         <!-- Authentication Links -->
                         {{-- ログインしていなかったら新規画面へのリンクを表示 --}}
                         @guest
+                            <li><a class="nav-link" href="{{ route('login') }}">{{ __('messages.Login') }}</a></li>
                             <li><a class="nav-link" href="{{ route('register') }}">{{ __('新規登録する') }}</a></li>
                         {{-- ログインしていたらユーザー名とログアウトボタンを表示 --}}
                         @else

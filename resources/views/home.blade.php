@@ -1,4 +1,5 @@
 @extends('layouts.admin')
+@section('title', 'メモを選択してください')
 
 @section('content')
 <div class="container">
