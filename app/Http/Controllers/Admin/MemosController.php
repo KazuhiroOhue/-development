@@ -21,7 +21,11 @@ class MemosController extends Controller
         $memos = new Memos;
         $form = $request->all();
 
-        // フォームから画像が送信されてきたら、保存して、$memos->image_path に画像のパスを保存する
+        /*
+        フォームから画像が送信されてきたら、保存して、$memos->image_path に画像のパスを保存する
+        isset：変数に値が入っているかどうかをチェックする関数
+        store('public/image')を設定すると、storage/appの下にpublic/imageディレクトリが作成され、そこにファイルが保存される
+        */
         if (isset($form['image'])) {
             $path = $request->file('image')->store('public/image');
             $memos->image_path = basename($path);

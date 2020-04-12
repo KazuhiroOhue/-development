@@ -25,7 +25,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <label class="col-md-2" for="rank2">修得段位（旧課程）</label>
+                    <label class="col-md-2" for="rank2">修得段位<br>（旧課程）</label>
                     <div class="col-md-10">
                         {{ $memos->rank2 }}
                         @empty($memos->rank2)

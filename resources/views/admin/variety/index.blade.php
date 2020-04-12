@@ -8,7 +8,9 @@
         </div>
         <div class="row">
             <div class="col-md-4">
-                <a href="{{ action('Admin\VarietyController@add') }}" role="button" class="btn btn-primary">新規作成</a>
+                <p class="bt">
+                    <a href="{{ action('Admin\VarietyController@add') }}">新規作成</a>
+                </p>
             </div>
             <div class="col-md-8">
                 <form action="{{ action('Admin\VarietyController@index') }}" method="get">
@@ -28,7 +30,7 @@
         <div class="row">
             <div class="list-variety col-md-12 mx-auto">
                 <div class="row">
-                    <table class="table table-dark">
+                    <table class="table table-light table-hover">
                         <tbody>
                             <tbody>
                                 <thead>

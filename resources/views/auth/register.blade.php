@@ -1,13 +1,14 @@
 @extends('layouts.admin')
+@section('title', '新規登録')
 
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="register-box card">
-                <div class="register-header card-header mx-auto">{{ __('アカウント作成') }}</div>
+            <div class="auth-box card">
+                <div class="auth-header card-header mx-auto">{{ __('アカウント作成') }}</div>
 
-                <div class="register-body card-body">
+                <div class="auth-body card-body">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
 
