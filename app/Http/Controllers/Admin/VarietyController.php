@@ -101,7 +101,7 @@ class VarietyController extends Controller
         // 該当するデータを上書きして保存する
         $variety->fill($variety_form)->save();
     
-        return redirect('admin/variety/');
+        return view('admin.variety.detail',['variety' => $variety]);
     }
     
     public function delete(Request $request)

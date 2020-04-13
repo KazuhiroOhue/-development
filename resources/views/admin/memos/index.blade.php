@@ -13,9 +13,8 @@
                 </p>
             </div>
         </div>
-        <p class="open">クリックすると検索フォームが出てきます</p>
+        <p class="open">ここをクリックすると検索フォームが出てきます</p>
         <div id="slideBox">
-            <div class="row">
                 <div class="col-md-8">
                     <form action="{{ action('Admin\MemosController@index') }}" method="get">
                         <div class="form-group row">
@@ -47,25 +46,25 @@
                         <div class="form-group">
                             <div class="col-md-4">
                                 {{ csrf_field() }}
-                                <input type="submit" class="btn btn-primary" value="検索">
+                                <input type="submit" class="btn btn-warning" value="検索">
                             </div>
                         </div>
                     </form>
                 </div>
-            </div>
         </div>
         <div class="row">
             <div class="list-memos col-md-12 mx-auto">
                 <div class="row">
                     <table class="table table-light table-hover">
                         <tbody>
-                            <thead>
+                            <thead class="thead-dark">
                                 <tr>
                                     <th width="20%">技名</th>
                                     <th width="20%">更新日</th>
                                     <th width="20%">段位</th>
                                     <th width="20%">拳系</th>
                                     <th width="10%">状態</th>
+                                    <th width="10%"></th>
                                 </tr>
                             </thead>
                         </tbody>

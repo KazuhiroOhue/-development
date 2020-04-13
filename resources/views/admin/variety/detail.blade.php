@@ -4,41 +4,42 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="title col-md-12">
-                {{ $variety->title }}
-            </div>
-            <div class="date">
-                {{ $variety->updated_at->format('Y年m月d日') }}
-            </div>
-        </div>
-        <div class="variety">
-            <div class="row">
-                <div class="text col-md-8">
-                    <div class="body mt-3">
+            <div class="variety col-md-8 mx-auto">
+                <h2 class="title">
+                    {{ $variety->title }}
+                </h2>
+                <h5 class="date">
+                    {{ $variety->updated_at->format('Y年m月d日') }}更新
+                </h5>
+                
+                @if ( $variety->status == "編集中" ) 
+                    <span class="text-info">※このメモは編集中です</span>
+                @elseif ( $variety->status == "要確認‼" )
+                    <span class="text-danger">※確認事項があります！！</span>
+                @endif
+                
+                <div class="row">
+                    <div class="col-md-12" for="body">
                         {{ $variety->body }}
                     </div>
                 </div>
-                <div class="image col-md-4 mt-4">
+                <div class="image col-md-6 text-right mt-4">
                     @if ($variety->image_path)
                         <a href="{{ asset('storage/image/' . $variety->image_path) }}" data-lightbox="abcd" data-title="メモいろいろ">
                             <img src="{{ asset('storage/image/' . $variety->image_path) }}">
                         </a>
                     @endif
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-md-4">
-                    <a href="{{ action('Admin\VarietyController@edit',['id' => $variety->id]) }}" role="button" class="btn btn-primary">編集</a>
-                </div>
-                <div class="col-md-4">
-                    <a href="{{ action('Admin\VarietyController@delete',['id' => $variety->id]) }}" role="button" class="btn btn-primary" onclick="return check();">削除</a>
-                </div>
-                <div class="col-md-4">
-                    <a href="{{ action('Admin\VarietyController@index') }}" role="button" class="btn btn-primary">一覧に戻る</a>
+                <br>
+                <div class="row justify-content-around">
+                    <p class="bt"><a href="{{ action('Admin\VarietyController@edit',['id' => $variety->id]) }}">編集</a></p>
+                    <p class="bt"><a href="{{ action('Admin\VarietyController@delete',['id' => $variety->id]) }}" onclick="return check();">削除</a></p>
+                    <p class="bt"><a href="{{ action('Admin\VarietyController@index') }}">一覧に戻る</a></p>
                 </div>
             </div>
         </div>
     </div>
+    
     <script type="text/javascript">
         function check (){
             if (window.confirm('本当に削除してよろしいですか？')) {

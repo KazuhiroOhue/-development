@@ -1,11 +1,15 @@
 @charset "UTF-8";
 
+html {
+  height: 100%;
+}
+
 body {
   background-repeat: no-repeat;
   background-position: center;
-  background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
-  background-size: cover;
-  color: #000;
+  background-image: linear-gradient(to top, #09203f 0%, #537895 100%);
+  color: #fff;
+  background-attachment: fixed;
 }
 
 .navbar-laravel {
@@ -89,22 +93,23 @@ detailの画像サイズを調整
   -ms-filter: "image(opacity=70)";
 }
 
-.card-img-top {
+.card img {
   max-width: 100%;
 }
 
 .open {
-  width: 300px;
+  width: 350px;
   margin: 10px 0;
   padding: 10px;
-  background: #00bfff;
+  color: #fff;
+  background: #FC6E51;
   cursor: pointer;
 }
 
 #slideBox {
   display: none;
   padding: 10px;
-  border: 1px solid #eeeeee;
+  border: 1px solid #000;
 }
 
 .bt {
@@ -128,6 +133,4 @@ detailの画像サイズを調整
   box-shadow: none;
   transform: translate3d(0, 3px, 0);
 }
-
-
 

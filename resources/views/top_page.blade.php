@@ -5,7 +5,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-10">
-            <section class="card">
+            <section class="card bg-dark border-0">
                 <img class="card-image-top" src="images/welcome.jpg" alt="welcome">
                 <div class="card-content text-center">
                     <h1>こんにちは‼︎</h1>

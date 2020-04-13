@@ -40,7 +40,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-12" for="body">
                         {{ $memos->body }}
                     </div>
                 </div>
@@ -51,16 +51,11 @@
                         </a>
                     @endif
                 </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <a href="{{ action('Admin\MemosController@edit',['id' => $memos->id]) }}" role="button" class="btn btn-primary">編集</a>
-                    </div>
-                    <div class="col-md-4">
-                        <a href="{{ action('Admin\MemosController@delete',['id' => $memos->id]) }}" role="button" class="btn btn-primary" onclick="return check();">削除</a>   
-                    </div>
-                    <div class="col-md-4">
-                        <a href="{{ action('Admin\MemosController@index') }}" role="button" class="btn btn-primary">一覧に戻る</a>
-                    </div>
+                <br>
+                <div class="row justify-content-around">
+                    <p class="bt"><a href="{{ action('Admin\MemosController@edit',['id' => $memos->id]) }}">編集</a></p>
+                    <p class="bt"><a href="{{ action('Admin\MemosController@delete',['id' => $memos->id]) }}" onclick="return check();">削除</a></p>   
+                    <p class="bt"><a href="{{ action('Admin\MemosController@index') }}">一覧に戻る</a></p>
                 </div>
             </div>
         </div>

@@ -4,8 +4,8 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-md-8 mx-auto">
-                <h2>メモを編集</h2>
+            <div class="col-md-12 mx-auto">
+                <h1>メモを編集</h1>
                 <form action="{{ action('Admin\VarietyController@update') }}" method="post" enctype="multipart/form-data">
                     @if (count($errors) > 0)
                         <ul>
@@ -15,19 +15,19 @@
                         </ul>
                     @endif
                     <div class="form-group row">
-                        <label class="col-md-2" for="title">タイトル</label>
+                        <label class="col-md-2 col-form-label text-md-right" for="title">タイトル</label>
                         <div class="col-md-10">
                             <input type="text" class="form-control" name="title" value="{{ $variety_form->title }}">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-2" for="body">本文</label>
+                        <label class="col-md-2 col-form-label text-md-right" for="body">本文</label>
                         <div class="col-md-10">
                             <textarea class="form-control" name="body" rows="20">{{ $variety_form->body }}</textarea>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-2" for="image">画像</label>
+                        <label class="col-md-2 col-form-label text-md-right" for="image">画像</label>
                         <div class="col-md-10">
                             <input type="file" class="form-control-file" name="image">
                             <div class="form-text text-info">
@@ -41,10 +41,21 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <div class="col-md-10">
+                        <label class="col-md-2 col-form-label text-md-right">状態</label>
+                        <div class="col-md-5">
+                            <select type="text" class="form-control" name="status"> 
+                                {{-- configディレクトリのstatus.phpファイルに記載した配列を呼び出す --}}
+                                @foreach(config('status') as $key => $score)
+                                    <option value="{{ $score }}" @if($variety_form->status == $score) selected @endif>{{ $score }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-10 offset-md-2">
                             <input type="hidden" name="id" value="{{ $variety_form->id }}">
                             {{ csrf_field() }}
-                            <input type="submit" class="btn btn-primary" value="更新" onclick="return check();">
+                            <input type="submit" class="btn btn-warning" value="更新" onclick="return check();">
                         </div>
                     </div>
                 </form>

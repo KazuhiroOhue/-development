@@ -139,7 +139,7 @@ class MemosController extends Controller
         // 該当するデータを上書きして保存する
         $memos->fill($memos_form)->save();
 
-        return redirect('admin/memos');
+        return view('admin.memos.detail',['memos' => $memos]);
     }
     
     public function delete(Request $request)
