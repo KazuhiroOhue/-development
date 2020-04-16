@@ -25,8 +25,8 @@
                 </div>
                 <div class="image col-md-6 text-right mt-4">
                     @if ($variety->image_path)
-                        <a href="{{ $variety->image_path) }}" data-lightbox="abcd" data-title="メモいろいろ">
-                            <img src="{{ $variety->image_path) }}">
+                        <a href="{{ $variety->image_path }}" data-lightbox="abcd" data-title="メモいろいろ">
+                            <img src="{{ $variety->image_path }}">
                         </a>
                     @endif
                 </div>
