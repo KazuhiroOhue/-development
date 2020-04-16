@@ -4,9 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
 use App\Variety;
-
+use Storage;
 
 class VarietyController extends Controller
 {
@@ -26,8 +25,8 @@ class VarietyController extends Controller
         $form = $request->all();
 
         if (isset($form['image'])) {
-            $path = $request->file('image')->store('public/image');
-            $variety->image_path = basename($path);
+            $path = Storage::disk('s3')->putFile('/',$form['image'],'public');
+            $variety->image_path = Storage::disk('s3')->url($path);
         } else {
             $variety->image_path = null;
         }

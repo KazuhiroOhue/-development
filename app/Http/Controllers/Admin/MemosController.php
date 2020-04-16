@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Memos;
+use Storage;
 
 class MemosController extends Controller
 {
@@ -27,8 +28,8 @@ class MemosController extends Controller
         store('public/image')を設定すると、storage/appの下にpublic/imageディレクトリが作成され、そこにファイルが保存される
         */
         if (isset($form['image'])) {
-            $path = $request->file('image')->store('public/image');
-            $memos->image_path = basename($path);
+            $path = Storage::disk('s3')->putFile('/',$form['image'],'public');
+            $memos->image_path = Storage::disk('s3')->url($path);
         } else {
             $memos->image_path = null;
         }
