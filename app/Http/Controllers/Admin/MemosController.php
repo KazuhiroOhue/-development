@@ -128,8 +128,8 @@ class MemosController extends Controller
         画像を変更した際にエラーになるらしい。
         */
         if (isset($memos_form['image'])) {
-            $path = $request->file('image')->store('public/image');
-            $memos->image_path = basename($path);
+            $path = Storage::disk('s3')->putFile('/',$memos_form['image'],'public');
+            $memos->image_path = Storage::disk('s3')->url($path);
             unset($memos_form['image']);
         } elseif (isset($request->remove)) {
             $memos->image_path = null;

@@ -87,8 +87,8 @@ class VarietyController extends Controller
         画像を変更した際にエラーになるらしい。
         */
         if (isset($variety_form['image'])) {
-            $path = $request->file('image')->store('public/image');
-            $variety->image_path = basename($path);
+            $path = Storage::disk('s3')->putFile('/',$variety_form['image'],'public');
+            $variety->image_path = Storage::disk('s3')->url($path);
             unset($variety_form['image']);
         } elseif (isset($request->remove)) {
             $variety->image_path = null;
