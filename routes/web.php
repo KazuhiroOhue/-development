@@ -10,9 +10,10 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('top_page');
+Route::group(['middleware' => 'guest'], function(){
+    Route::get('/', function () {
+        return view('top_page');
+    });
 });
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
